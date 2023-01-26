@@ -1,3 +1,5 @@
+import { Box, Button } from "@chakra-ui/react";
+import { Flex, Spacer } from "@chakra-ui/react";
 function Nav() {
   const categories = [
     {
@@ -17,32 +19,49 @@ function Nav() {
   }
   return (
     <header>
-      <h2>
-        <a href="/">
-          <span role="img" aria-label="camera">
-            {" "}
-            📸
-          </span>{" "}
-          Oh Snap!
-        </a>
-      </h2>
-      <nav>
-        <ul className="flex-row">
-          <li className="mx-2">
-            <a href="#about">About me</a>
-          </li>
-          <li>
-            <span>Contact</span>
-          </li>
-          {categories.map((category) => (
-            <li className="mx-1" key={category.name}>
-              <span onClick={() => categorySelected(category.name)}>
-                {category.name}
-              </span>
-            </li>
-          ))}
-        </ul>
-      </nav>
+      <Flex>
+        <Box>
+          <h2>
+            <a href="/">
+              <span role="img" aria-label="camera">
+                {" "}
+                📸
+              </span>{" "}
+              Oh Snap!
+            </a>
+          </h2>
+        </Box>
+        <Spacer />
+        <Box>
+          <nav>
+            <ul className="flex-row">
+              <li className="mx-2">
+                <a href="#about">
+                  <Button colorScheme="teal" variant="ghost">
+                    About Me
+                  </Button>
+                </a>
+              </li>
+              <li>
+                <Button colorScheme="teal" variant="ghost">
+                  Contact
+                </Button>
+              </li>
+              {categories.map((category) => (
+                <span onClick={() => categorySelected(category.name)}>
+                  <Button
+                    key={category.name}
+                    colorScheme="teal"
+                    variant="ghost"
+                  >
+                    {category.name}
+                  </Button>
+                </span>
+              ))}
+            </ul>
+          </nav>
+        </Box>
+      </Flex>
     </header>
   );
 }

@@ -1,14 +1,18 @@
+import { ChakraProvider } from "@chakra-ui/react";
+
 import Nav from "./components/Nav";
 import About from "./components/About";
 
 function App() {
   return (
-    <div>
-      <Nav></Nav>
-      <main>
-        <About></About>
-      </main>
-    </div>
+    <ChakraProvider>
+      <div>
+        <Nav></Nav>
+        <main>
+          <About></About>
+        </main>
+      </div>
+    </ChakraProvider>
   );
 }
 
