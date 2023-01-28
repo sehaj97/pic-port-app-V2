@@ -1,22 +1,19 @@
+import { useEffect } from "react";
+
 import { Box, Button } from "@chakra-ui/react";
 import { Flex, Spacer } from "@chakra-ui/react";
-function Nav() {
-  const categories = [
-    {
-      name: "commercial",
-      description:
-        "Photos of grocery stores, food trucks, and other commercial projects",
-    },
-    { name: "portraits", description: "Portraits of people in my life" },
-    { name: "food", description: "Delicious delicacies" },
-    {
-      name: "landscape",
-      description: "Fields, farmhouses, waterfalls, and the beauty of nature",
-    },
-  ];
-  function categorySelected(name) {
-    console.log(`${name} clicked`);
-  }
+
+import { capitalizeFirstLetter } from "../../utils/helpers";
+
+function Nav({
+  categories,
+  setCategories,
+  setCurrentCategory,
+  currentCategory,
+}) {
+  useEffect(() => {
+    document.title = capitalizeFirstLetter(currentCategory.name);
+  }, [currentCategory]);
   return (
     <header>
       <Flex>
@@ -42,26 +39,23 @@ function Nav() {
                   </Button>
                 </a>
               </li>
-              <li>
-                <a href="#contact" data-testid="contact">
-                  <Button colorScheme="teal" variant="ghost">
-                    Contact
-                  </Button>
-                </a>
-              </li>
               {categories.map((category) => (
-                <a
-                  href={`#${category.name}`}
-                  onClick={() => categorySelected(category.name)}
+                <li
+                  key={currentCategory.name}
+                  className={`mx-1 ${
+                    currentCategory.name === category.name && "navActive"
+                  }`}
                 >
-                  <Button
-                    key={category.name}
-                    colorScheme="teal"
-                    variant="ghost"
+                  <a
+                    onClick={() => {
+                      setCurrentCategory(category);
+                    }}
                   >
-                    {category.name}
-                  </Button>
-                </a>
+                    <Button colorScheme="teal" variant="ghost">
+                      {capitalizeFirstLetter(category.name)}
+                    </Button>
+                  </a>
+                </li>
               ))}
             </ul>
           </nav>
