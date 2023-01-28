@@ -36,19 +36,24 @@ function Nav() {
           <nav>
             <ul className="flex-row">
               <li className="mx-2">
-                <a href="#about">
+                <a href="#about" data-testid="about">
                   <Button colorScheme="teal" variant="ghost">
                     About Me
                   </Button>
                 </a>
               </li>
               <li>
-                <Button colorScheme="teal" variant="ghost">
-                  Contact
-                </Button>
+                <a href="#contact" data-testid="contact">
+                  <Button colorScheme="teal" variant="ghost">
+                    Contact
+                  </Button>
+                </a>
               </li>
               {categories.map((category) => (
-                <span onClick={() => categorySelected(category.name)}>
+                <a
+                  href={`#${category.name}`}
+                  onClick={() => categorySelected(category.name)}
+                >
                   <Button
                     key={category.name}
                     colorScheme="teal"
@@ -56,7 +61,7 @@ function Nav() {
                   >
                     {category.name}
                   </Button>
-                </span>
+                </a>
               ))}
             </ul>
           </nav>

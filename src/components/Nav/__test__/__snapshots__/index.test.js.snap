@@ -1,0 +1,110 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Nav component matches snapshot DOM node structure 1`] = `
+<DocumentFragment>
+  <header>
+    <div
+      class="css-k008qs"
+    >
+      <div
+        class="css-0"
+      >
+        <h2>
+          <a
+            href="/"
+          >
+            <span
+              aria-label="camera"
+              role="img"
+            >
+               📸
+            </span>
+             Oh Snap!
+          </a>
+        </h2>
+      </div>
+      <div
+        class="css-17xejub"
+      />
+      <div
+        class="css-0"
+      >
+        <nav>
+          <ul
+            class="flex-row"
+          >
+            <li
+              class="mx-2"
+            >
+              <a
+                data-testid="about"
+                href="#about"
+              >
+                <button
+                  class="chakra-button css-4xx2wk"
+                  type="button"
+                >
+                  About Me
+                </button>
+              </a>
+            </li>
+            <li>
+              <a
+                data-testid="contact"
+                href="#contact"
+              >
+                <button
+                  class="chakra-button css-4xx2wk"
+                  type="button"
+                >
+                  Contact
+                </button>
+              </a>
+            </li>
+            <a
+              href="#commercial"
+            >
+              <button
+                class="chakra-button css-4xx2wk"
+                type="button"
+              >
+                commercial
+              </button>
+            </a>
+            <a
+              href="#portraits"
+            >
+              <button
+                class="chakra-button css-4xx2wk"
+                type="button"
+              >
+                portraits
+              </button>
+            </a>
+            <a
+              href="#food"
+            >
+              <button
+                class="chakra-button css-4xx2wk"
+                type="button"
+              >
+                food
+              </button>
+            </a>
+            <a
+              href="#landscape"
+            >
+              <button
+                class="chakra-button css-4xx2wk"
+                type="button"
+              >
+                landscape
+              </button>
+            </a>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+</DocumentFragment>
+`;
