@@ -7,7 +7,7 @@ import About from "./components/About";
 import Gallery from "./components/Gallery";
 
 function App() {
-  const [categories, setCategories] = useState([
+  const [categories] = useState([
     {
       name: "commercial",
       description:
@@ -28,7 +28,6 @@ function App() {
       <div>
         <Nav
           categories={categories}
-          setCategories={setCategories}
           setCurrentCategory={setCurrentCategory}
           currentCategory={currentCategory}
         ></Nav>

@@ -5,12 +5,8 @@ import { Flex, Spacer } from "@chakra-ui/react";
 
 import { capitalizeFirstLetter } from "../../utils/helpers";
 
-function Nav({
-  categories,
-  setCategories,
-  setCurrentCategory,
-  currentCategory,
-}) {
+function Nav(props) {
+  const { categories = [], setCurrentCategory, currentCategory } = props;
   useEffect(() => {
     document.title = capitalizeFirstLetter(currentCategory.name);
   }, [currentCategory]);
@@ -39,22 +35,21 @@ function Nav({
                   </Button>
                 </a>
               </li>
-              {categories.map((category) => (
-                <li
-                  key={currentCategory.name}
-                  className={`mx-1 ${
-                    currentCategory.name === category.name && "navActive"
-                  }`}
-                >
-                  <a
-                    onClick={() => {
+              {categories.map((category, index) => (
+                <li key={`${currentCategory.name}-${index}`}>
+                  <Button
+                    onClick={(event) => {
+                      event.preventDefault();
                       setCurrentCategory(category);
                     }}
+                    href={`#${currentCategory.name}`}
+                    colorScheme="teal"
+                    variant={
+                      currentCategory.name === category.name ? "solid" : "ghost"
+                    }
                   >
-                    <Button colorScheme="teal" variant="ghost">
-                      {capitalizeFirstLetter(category.name)}
-                    </Button>
-                  </a>
+                    {capitalizeFirstLetter(category.name)}
+                  </Button>
                 </li>
               ))}
             </ul>
